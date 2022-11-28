@@ -13,10 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('dailies', function (Blueprint $table) {
+        Schema::create('daily_reports', function (Blueprint $table) {
             $table->id();
-            $table->string('role_id');
             $table->string('task_id');
+            $table->string('employee_id');
+            $table->text('description');
+            $table->date('date');
+            $table->dateTime('start')->nullable();
+            $table->dateTime('end')->nullable();
+            $table->float('total_minutes')->nullable();
+            $table->text('blockers')->nullable();
+            $table->text('todo')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dailies');
+        Schema::dropIfExists('daily_reports');
     }
 };

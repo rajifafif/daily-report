@@ -25,16 +25,29 @@
          <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Subject:</strong>
-                    <input type="text" name="subject" class="form-control" placeholder="subject">
+                    <strong>Parent Induk :</strong>
+                    <input type="number" min="0" name="parent_id" class="form-control" placeholder="subject">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Detail:</strong>
-                    <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail"></textarea>
+                    <strong>Nama Task :</strong>
+                    <input type="text" name="name" class="form-control" placeholder="subject">
                 </div>
             </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Deskripsi :</strong>
+                    <textarea class="form-control" style="height:150px" name="description" placeholder="Deskripsi"></textarea>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Estimasi Jam :</strong>
+                    <input type="number" min="0" name="est_hours" class="form-control" placeholder="subject">
+                </div>
+            </div>
+         
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                     <button type="submit" class="btn btn-primary">Submit</button>
             </div>

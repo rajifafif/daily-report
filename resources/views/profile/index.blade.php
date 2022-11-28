@@ -26,36 +26,108 @@
                         <form action="/users/profile/{{ auth()->user()->id }}" method="post" enctype="multipart/form-data">
                             {{-- @method('put') --}}
                             @csrf
-                            <div class="row justify-content-between align-items-center">
-                                @if(auth()->user()->profile)
-                                    <img src="{{ asset('/storage/' . auth()->user()->profile) }}" class="img-preview col-3 d-block" onchange="previewImage()">
-                                @else
-                                    <img class="img-preview col-3 d-block" width="10px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
-                                @endif
-                            </div>
-                            <div class="row justify-content-between align-items-center py-3">
-                                <div class="col-3">
-                                    <label for="profile" class="form-label">Foto Profile</label>
+                            <div class="row g-3 align-items-center mb-3">
+                                <div class="col-4">
+                                  <label for="email" class="col-form-label">email</label>
                                 </div>
                                 <div class="col-8">
-                                    <input style="border: 0;" class="form-control @error('profile') is-invalid @enderror" type="file" id="profile" name="profile" onchange="previewImage()">
+                                    <input type="text" id="email" name="email" class="form-control" value="{{ old('email', Auth()->user()->email) }}">
                                 </div>
-                                {{-- <input type="hidden" name="oldprofile" value="{{ auth()->user()->employee->profile }}"> --}}
                             </div>
                             <div class="row g-3 align-items-center mb-3">
                                 <div class="col-4">
                                   <label for="name" class="col-form-label">Name</label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="text" id="name" name="name" class="form-control" value="{{ old('name', Auth()->user()->name) }}">
+                                    <input type="text" id="name" name="name" class="form-control" value="{{ old('name', Auth()->user()->employee_id->name) }}">
                                 </div>
                             </div>
                             <div class="row g-3 align-items-center mb-3">
                                 <div class="col-4">
-                                  <label for="email" class="col-form-label">Email</label>
+                                  <label for="name_prefix" class="col-form-label">Nama Awal</label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="text" id="email" name="email" class="form-control" value="{{ old('email', Auth()->user()->email) }}">
+                                    <input type="text" id="name_prefix" name="name_prefix" class="form-control" value="{{ old('name_prefix', Auth()->user()->name_prefix) }}">
+                                </div>
+                            </div>
+                            <div class="row g-3 align-items-center mb-3">
+                                <div class="col-4">
+                                  <label for="name_suffix" class="col-form-label">Nama Akhir</label>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" id="name_suffix" name="name_suffix" class="form-control" value="{{ old('name_suffix', Auth()->user()->name_suffix) }}">
+                                </div>
+                            </div>
+                            <div class="row g-3 align-items-center mb-3">
+                                <div class="col-4">
+                                  <label for="phone" class="col-form-label">Nomor Telephone</label>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" id="phone" name="phone" class="form-control" value="{{ old('phone', Auth()->user()->phone) }}">
+                                </div>
+                            </div>
+                            <div class="row g-3 align-items-center mb-3">
+                                <div class="col-4">
+                                  <label for="gender" class="col-form-label">Gender</label>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" id="gender" name="gender" class="form-control" value="{{ old('gender', Auth()->user()->gender) }}">
+                                </div>
+                            </div>
+                            <div class="row g-3 align-items-center mb-3">
+                                <div class="col-4">
+                                  <label for="birth_date" class="col-form-label">Tanggal Lahir</label>
+                                </div>
+                                <div class="col-8">
+                                    <input type="date" id="birth_date" name="birth_date" class="form-control" value="{{ old('birth_date', Auth()->user()->birth_date) }}">
+                                </div>
+                            </div>
+                            <div class="row g-3 align-items-center mb-3">
+                                <div class="col-4">
+                                  <label for="birth_place" class="col-form-label">Tempat Lahir</label>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" id="birth_place" name="birth_place" class="form-control" value="{{ old('birth_place', Auth()->user()->birth_place) }}">
+                                </div>
+                            </div>
+                            <div class="row g-3 align-items-center mb-3">
+                                <div class="col-4">
+                                  <label for="position_id" class="col-form-label">Posisi</label>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" id="position_id" name="position_id" class="form-control" value="{{ old('position_id', Auth()->user()->position_id) }}">
+                                </div>
+                            </div>
+                            <div class="row g-3 align-items-center mb-3">
+                                <div class="col-4">
+                                  <label for="last_education" class="col-form-label">Pendidikan Terakhir</label>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" id="last_education" name="last_education" class="form-control" value="{{ old('last_education', Auth()->user()->last_education) }}">
+                                </div>
+                            </div>
+                            <div class="row g-3 align-items-center mb-3">
+                                <div class="col-4">
+                                  <label for="religion" class="col-form-label">Agama</label>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" id="religion" name="religion" class="form-control" value="{{ old('religion', Auth()->user()->religion) }}">
+                                </div>
+                            </div>
+                            <div class="row g-3 align-items-center mb-3">
+                                <div class="col-4">
+                                  <label for="marital_status" class="col-form-label">Status Pernikahan</label>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" id="marital_status" name="marital_status" class="form-control" value="{{ old('marital_status', Auth()->user()->marital_status) }}">
+                                </div>
+                            </div>
+                            <div class="row g-3 align-items-center mb-3">
+                                <div class="col-4">
+                                  <label for="main_address_id" class="col-form-label">Alamat</label>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" id="main_address_id" name="main_address_id" class="form-control" value="{{ old('main_address_id', Auth()->user()->main_address_id) }}">
                                 </div>
                             </div>
                             <div class="text-end">

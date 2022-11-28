@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreDailyRequest;
-use App\Http\Requests\UpdateDailyRequest;
-use App\Models\Daily;
+use App\Http\Requests\StoreClientRequest;
+use App\Http\Requests\UpdateClientRequest;
+use App\Models\Client;
 
-class DailyController extends Controller
+class ClientController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class DailyController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreDailyRequest  $request
+     * @param  \App\Http\Requests\StoreClientRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreDailyRequest $request)
+    public function store(StoreClientRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class DailyController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Daily  $daily
+     * @param  \App\Models\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function show(Daily $daily)
+    public function show(Client $client)
     {
         //
     }
@@ -53,10 +53,10 @@ class DailyController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Daily  $daily
+     * @param  \App\Models\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function edit(Daily $daily)
+    public function edit(Client $client)
     {
         //
     }
@@ -64,11 +64,11 @@ class DailyController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateDailyRequest  $request
-     * @param  \App\Models\Daily  $daily
+     * @param  \App\Http\Requests\UpdateClientRequest  $request
+     * @param  \App\Models\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateDailyRequest $request, Daily $daily)
+    public function update(UpdateClientRequest $request, Client $client)
     {
         //
     }
@@ -76,10 +76,10 @@ class DailyController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Daily  $daily
+     * @param  \App\Models\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Daily $daily)
+    public function destroy(Client $client)
     {
         //
     }

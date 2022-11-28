@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->string('task_kode');
-            $table->string('subject');
-            $table->text('detail');
-            $table->string('status');
+            $table->string('parent_id');
+            $table->string('name');
+            $table->text('description');    
+            $table->float('est_hours')->nullable();
             $table->timestamps();
         });
     }

@@ -26,14 +26,26 @@
          <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Subject</strong>
-                    <input type="text" name="subject" value="{{ $task->subject }}" class="form-control" placeholder="Subject">
+                    <strong>Parent Induk :</strong>
+                    <input type="number" min="0" name="parent_id" class="form-control" placeholder="subject" value="{{ old('parent_id', $task->parent_id) }}">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Detail:</strong>
-                    <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail">{{ $task->detail }}</textarea>
+                    <strong>Nama Task :</strong>
+                    <input type="text" name="name" class="form-control" placeholder="subject" value="{{ old('name', $task->name) }}">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Deskripsi :</strong>
+                    <textarea class="form-control" style="height:150px" name="description" placeholder="Deskripsi" value="{{ old('description', $task->description) }}"></textarea>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Estimasi Jam :</strong>
+                    <input type="number" min="0" name="est_hours" class="form-control" placeholder="subject" value="{{ old('hours', $task->est_hours) }}">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
