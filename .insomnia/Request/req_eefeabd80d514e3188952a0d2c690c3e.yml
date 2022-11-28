@@ -1,0 +1,21 @@
+_id: req_eefeabd80d514e3188952a0d2c690c3e
+type: Request
+parentId: fld_ce66d5e08c594f87968e4c0f52f3339e
+modified: 1669605050033
+created: 1669605039951
+url: asdasd
+name: Test New
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1669605039951
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
