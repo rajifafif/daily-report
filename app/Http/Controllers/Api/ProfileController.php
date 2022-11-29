@@ -11,4 +11,9 @@ class ProfileController extends Controller
     {
         return null;
     }
+
+    public function update(Request $request)
+    {
+        return UserRequest::make($user);
+    }
 }
