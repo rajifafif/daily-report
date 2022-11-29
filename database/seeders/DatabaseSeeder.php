@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\DailyReport;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Role;
@@ -60,16 +62,21 @@ class DatabaseSeeder extends Seeder
         //     'status' => 'aktif'
         // ]);
 
-        $this->call(RoleSeeder::class); 
+        $this->call(ClientSeeder::class);
+        
+        // $this->call(DailyReportSeeder::class); 
+        DailyReport::factory(3)->create();
 
-        // $this->call(UserSeeder::class);
+        $this->call(EmployeeSeeder::class);
+        
+        $this->call(EmployeeTaskSeeder::class);
+        
+        $this->call(RoleSeeder::class); 
     
         $this->call(PermissionTableSeeder::class);
         
         $this->call(CreateAdminUserSeeder::class);
 
         $this->call(TaskSeeder::class);
-
-        $this->call(DailySeeder::class);
-     }
+    }
 }

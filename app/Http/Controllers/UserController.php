@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
     
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Employee;
 use App\Models\User;
 use App\Models\Task;
 use Spatie\Permission\Models\Role;
@@ -47,21 +48,48 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
+        // $this->validate($request, [
+        //     'name' => 'required',
+        //     'email' => 'required|email|unique:users,email',
+        //     'password' => 'required|same:confirm-password',
+        //     'roles' => 'required'
+        // ]);
+    
+        // $input = $request->all();
+        // $input['password'] = Hash::make($input['password']);
+    
+        // $user = User::create($input);
+        // $user->assignRole($request->input('roles'));
+    
+        // return redirect()->route('users.index')
+        //                 ->with('success','User created successfully');
+
+        
+        Employee::create([
             'name' => 'required',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|same:confirm-password',
-            'roles' => 'required'
+            'name_prefix' => 'required',
+            'name_suffix' => 'required',
+            'phone' => 'required',
+            'gender' => 'required',
+            'birth_date' => 'required',
+            'birth_place' => 'required',
+            'position_id' => 'required',
+            'last_education' => 'required',
+            'religion' => 'required',
+            'marital_status' => 'required',
+            'main_address_id' => 'required'
         ]);
+
+        $validateData = $request->validate([
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+
+        $validateData['employee_id'] = Employee::latest()->get()[0]['id'];
+
+        User::create($validateData);
     
-        $input = $request->all();
-        $input['password'] = Hash::make($input['password']);
-    
-        $user = User::create($input);
-        $user->assignRole($request->input('roles'));
-    
-        return redirect()->route('users.index')
-                        ->with('success','User created successfully');
+        return redirect('/users')->with('success', 'Profil berhasil diupdate!');
     }
     
     /**
@@ -162,24 +190,35 @@ class UserController extends Controller
 
     }
 
-    public function updateprofile(Request $request, User $user){
+    public function updateprofile(Request $request, User $user, Employee $employee){
         $kwn = [
-            'name' => 'required',
             'email' => 'required',
         ];
 
         $validateData = $request->validate($kwn);
 
-        if($request->file('profile')){
-            if($request->oldImage){
-                Storage::delete($request->oldImage);
-            }
-            $validateData['profile'] = $request->file('profile')->store('/profile');
-        }
-
-        // dd($request);
         User::where('id', $user->id)
         ->update($validateData);
+
+        $emply = [
+            'name' => 'required',
+            'name_prefix' => 'required',
+            'name_suffix' => 'required',
+            'phone' => 'required',
+            'gender' => 'required',
+            'birth_date' => 'required',
+            'birth_place' => 'required',
+            'position_id' => 'required',
+            'last_education' => 'required',
+            'religion' => 'required',
+            'marital_status' => 'required',
+            'main_address_id' => 'required'
+        ];
+
+        $validatedData = $request->validate($emply);
+
+        Employee::where('id', $employee->id)
+            ->update($validatedData);
 
         return redirect('/users/profile')->with('success', 'Profil berhasil diupdate!');
 

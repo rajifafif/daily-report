@@ -72,8 +72,10 @@ class TaskController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            'subject' => 'required',
-            'detail' => 'required',
+            'parent_id' => 'required',
+            'name' => 'required',
+            'description' => 'required',
+            'est_hours' => 'required'
         ]);
     
         Task::create($request->all());
@@ -114,8 +116,10 @@ class TaskController extends Controller
     public function update(Request $request, task $task)
     {
          request()->validate([
-            'subject' => 'required',
-            'detail' => 'required',
+            'parent_id' => 'required',
+            'name' => 'required',
+            'description' => 'required',
+            'est_hours' => 'required'
         ]);
     
         $task->update($request->all());

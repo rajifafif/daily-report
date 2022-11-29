@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Daily>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Client>
  */
-class DailyFactory extends Factory
+class ClientFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +17,7 @@ class DailyFactory extends Factory
     public function definition()
     {
         return [
-            
+            //
         ];
     }
 }

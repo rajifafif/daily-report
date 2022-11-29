@@ -99,8 +99,8 @@ class RoleController extends Controller
             ->pluck('role_has_permissions.permission_id','role_has_permissions.permission_id')
             ->all();
         $tasks = Task::get();
-        $daily = DB::table("dailies")->where("dailies.role_id",$id)
-            ->pluck('dailies.task_id','dailies.task_id')
+        $daily = DB::table("daily_reports")->where("daily_reports.employee_id",$id)
+            ->pluck('daily_reports.task_id','daily_reports.task_id')
             ->all();
         // dd($rolePermissions);
 
@@ -119,7 +119,7 @@ class RoleController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'permission' => 'required',
-            'tasks' => 'required'
+            // 'tasks' => 'required'
         ]);
     
         $role = Role::find($id);
@@ -129,7 +129,7 @@ class RoleController extends Controller
         // dd($role);
         $role->syncPermissions($request->input('permission'));
 
-        $role->syncTask($request->input('tasks'));
+        // $role->Tasks()->sync($request->input('tasks'));
     
         return redirect()->route('roles.index')
                         ->with('success','Role updated successfully');

@@ -22,14 +22,16 @@
         <tr>
             <th>No</th>
             <th>Name</th>
-            <th>Details</th>
+            <th>Description</th>
+            <th>Estimasi Waktu</th>
             <th width="280px">Action</th>
         </tr>
         @foreach($tasks as $task)
         <tr>
             <td>{{ ++$i }}</td>
-            <td>{{ $task->subject }}</td>
-            <td>{{ $task->detail }}</td>
+            <td>{{ $task->name }}</td>
+            <td>{{ $task->description }}</td>
+            <td>{{ $task->est_hours }}</td>
             <td>
                 <form action="{{ route('task.destroy',$task->id) }}" method="POST">
                     <a class="btn btn-info" href="{{ route('task.show',$task->id) }}">Show</a>
