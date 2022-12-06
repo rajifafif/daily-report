@@ -11,10 +11,18 @@ class Task extends Model
     protected $guarded = ['id'];
 
     public function user(){
-        return $this->hasMany(User::class);
+        return $this->hasMany(User::class, 'user_id', 'id');
+    }
+
+    public function employees(){
+        return $this->belongsToMany(Employee::class, 'employee_tasks', 'employee_id', 'task_id');
     }
 
     public function role(){
-        return $this->hasMany(Role::class);
+        return $this->hasMany(Role::class, 'role_id', 'id');
+    }
+
+    public function dailyReports(){
+        return $this->hasMany(DailyReport::class, 'task_id', 'id');
     }
 }

@@ -39,7 +39,7 @@
                                   <label for="name" class="col-form-label">Name</label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="text" id="name" name="name" class="form-control" value="{{ old('name', Auth()->user()->employee_id->name) }}">
+                                    <input type="text" id="name" name="name" class="form-control" value="{{ old('name', Auth()->user()->name) }}">
                                 </div>
                             </div>
                             <div class="row g-3 align-items-center mb-3">

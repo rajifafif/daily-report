@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Employee;
+use App\Models\EmployeeTask;
 use App\Models\User;
 use App\Models\Task;
 use Spatie\Permission\Models\Role;
@@ -172,9 +173,10 @@ class UserController extends Controller
                         ->with('success','User deleted successfully');
     }
 
-    public function profile(){
+    public function profile(Employee $employee){
         return view('profile.index', [
-            'title' => 'profile'
+            'title' => 'profile',
+            'employee_id' => $employee
         ]);
     }
 

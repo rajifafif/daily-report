@@ -14,8 +14,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
-    use HasRoles;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -48,12 +47,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected $guard_name = ['web'];
+    // protected $guard_name = ['sanctum', 'web'];
     
     public function role(){
-        return $this->belongsTo(Role::class);
+        return $this->belongsTo(Role::class, 'role_id', 'id');
     }
 
-    public function task(){
-        return $this->hasMany(Task::class);
+    // public function task(){
+    //     return $this->hasMany(Task::class. 'task_id', 'id');
+    // }
+
+    public function employee(){
+        return $this->belongsTo(Employee::class, 'employee_id', 'id');
     }
 }

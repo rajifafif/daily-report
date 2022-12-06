@@ -16,10 +16,10 @@ class DailyReport extends Model
     }
 
     public function role(){
-        return $this->hasMany(Role::class, 'id', 'role_id');
+        return $this->hasMany(Role::class, 'role_id', 'id');
     }
 
     public function task(){
-        return $this->hasMany(Task::class, 'id', 'task_id');
+        return $this->belongsTo(Task::class, 'task_id', 'id');
     }
 }

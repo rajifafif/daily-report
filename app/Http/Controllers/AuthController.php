@@ -14,7 +14,8 @@ use Exception;
 class AuthController extends Controller
 {
     public function login(Request $request){
-        $validate = Validator::make($request->all(), [
+        dd('asd');
+         $validate = Validator::make($request->all(), [
             'username' => 'required',
             'password' => 'required',
         ]);

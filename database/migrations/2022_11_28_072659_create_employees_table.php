@@ -15,21 +15,21 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->string('owner_user_id');
-            $table->string('nik');
-            $table->string('name_prefix');
+            // $table->string('owner_user_id');
+            $table->string('nik')->nullable();
+            $table->string('name_prefix')->nullable();
             $table->string('name');
-            $table->string('name_suffix');
-            $table->string('phone');
-            $table->string('email');
-            $table->string('gender');
-            $table->string('birth_date');
-            $table->string('birth_place');
-            $table->string('position_id');
-            $table->string('last_education');
-            $table->string('religion');
-            $table->string('marital_status');
-            $table->string('main_address_id');
+            $table->string('name_suffix')->nullable();
+            $table->string('phone')->nullable();
+            // $table->string('email')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('birth_date')->nullable();
+            $table->string('birth_place')->nullable();
+            $table->string('role_id');
+            $table->string('last_education')->nullable();
+            $table->string('religion')->nullable();
+            $table->string('marital_status')->nullable();
+            $table->string('main_address_id')->nullable();
             $table->timestamps();
         });
     }

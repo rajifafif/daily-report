@@ -16,17 +16,16 @@ class EmployeeSeeder extends Seeder
     public function run()
     {
         Employee::create([
-            'owner_user_id' => '1',
             'nik' => 12345,
             'name_prefix' => 'Fadila',
             'name' => 'Fadila Akbar',
             'name_suffix' => 'Akbar',
             'phone' => '08123921083',
-            'email' => 'fadilakbar79@gmail.com',
+            // 'email' => 'fadilakbar79@gmail.com',
             'gender' => 'Male',
             'birth_date' => '16-09-2000',
             'birth_place' => 'Tangerang',
-            'position_id' => 'Commisioner',
+            'role_id' => '6',
             'last_education' => 'S3',
             'religion' => 'Islam',
             'marital_status' => 'Belum Menikah',

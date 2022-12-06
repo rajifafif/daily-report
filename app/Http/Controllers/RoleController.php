@@ -59,7 +59,8 @@ class RoleController extends Controller
             'name' => 'required|unique:roles,name',
             'permission' => 'required',
         ]);
-    
+        // dd($request->toArray());
+
         $role = Role::create(['name' => $request->input('name')]);
         $role->syncPermissions($request->input('permission'));
     
@@ -121,6 +122,7 @@ class RoleController extends Controller
             'permission' => 'required',
             // 'tasks' => 'required'
         ]);
+        // dd($request->toArray());
     
         $role = Role::find($id);
         $role->name = $request->input('name');
